@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sajad\\source\\repos\\TaskManager\\TaskManager\\TaskManager.csproj": {}
+    "C:\\Users\\sajad\\source\\repos\\TaskManager\\tsk\\source\\repos\\TaskManager\\TaskManager\\TaskManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sajad\\source\\repos\\TaskManager\\TaskManager\\TaskManager.csproj": {
+    "C:\\Users\\sajad\\source\\repos\\TaskManager\\tsk\\source\\repos\\TaskManager\\TaskManager\\TaskManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sajad\\source\\repos\\TaskManager\\TaskManager\\TaskManager.csproj",
+        "projectUniqueName": "C:\\Users\\sajad\\source\\repos\\TaskManager\\tsk\\source\\repos\\TaskManager\\TaskManager\\TaskManager.csproj",
         "projectName": "TaskManager",
-        "projectPath": "C:\\Users\\sajad\\source\\repos\\TaskManager\\TaskManager\\TaskManager.csproj",
+        "projectPath": "C:\\Users\\sajad\\source\\repos\\TaskManager\\tsk\\source\\repos\\TaskManager\\TaskManager\\TaskManager.csproj",
         "packagesPath": "C:\\Users\\sajad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sajad\\source\\repos\\TaskManager\\TaskManager\\obj\\",
+        "outputPath": "C:\\Users\\sajad\\source\\repos\\TaskManager\\tsk\\source\\repos\\TaskManager\\TaskManager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
