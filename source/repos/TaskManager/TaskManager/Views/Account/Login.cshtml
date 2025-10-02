@@ -1,0 +1,8 @@
+﻿@model TaskManager.Models.LoginViewModel
+<form asp-action="Login" method="post">
+    <label>نام کاربری</label>
+    <input asp-for="Username" />
+    <label>رمز عبور</label>
+    <input asp-for="Password" type="password" />
+    <button type="submit">ورود</button>
+</form>
