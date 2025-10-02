@@ -12,8 +12,9 @@ namespace TaskManager.Models
         [MaxLength(200)]
         public string Title { get; set; }
 
-       
-        public string? Description { get; set; }
+        [Required(ErrorMessage = "لطفا توضیحات تسک را وارد کنید")]
+        [MaxLength(1000)]
+        public string Description { get; set; }
 
         public bool IsCompleted { get; set; } = false;
 

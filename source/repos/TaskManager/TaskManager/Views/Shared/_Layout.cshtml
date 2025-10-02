@@ -10,34 +10,31 @@
 </head>
 <body>
     <header>
-        <ul class="nav">
-            @if (User.Identity.IsAuthenticated)
-            {
-                <li class="nav-item">
-                    <form asp-action="Logout" asp-controller="Account" method="post" class="form-inline">
-                        <button type="submit" class="btn btn-danger">خروج</button>
-                    </form>
-                </li>
-            }
-            else
-            {
-                <li class="nav-item">
-                    <a class="btn btn-primary" asp-action="Login" asp-controller="Account">ورود</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">خانه</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">ورود</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">ثبت نام</a>
-                </li>
-               
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" dir="rtl">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">🏠 خانه</a>
 
-            }
-        </ul>
-
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <form asp-action="Logout" asp-controller="Account" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger">خروج</button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="btn btn-primary me-2" asp-action="Login" asp-controller="Account">ورود</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-success" asp-action="Register" asp-controller="Account">ثبت‌نام</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </nav>
     </header>
     <div class="container">
         <main role="main" class="pb-3">

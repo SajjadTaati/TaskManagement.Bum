@@ -3,8 +3,12 @@
 <div class="container" dir="rtl">
     @if (TempData["LoginMessage"] != null)
     {
-        <div class="alert alert-success">
-            @TempData["LoginMessage"]
+        <div class="container mt-3" dir="rtl">
+            <div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
+                <span class="me-2">✅</span>
+                <div>@TempData["LoginMessage"]</div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         </div>
     }
 

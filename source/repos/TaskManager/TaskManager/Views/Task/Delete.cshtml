@@ -1,29 +1,33 @@
 ﻿@model TaskManager.Models.TaskItem
 
 @{
-    ViewData["Title"] = "حذف وظیفه";
+    ViewData["Title"] = "حذف تسک";
 }
 
-<h2>حذف وظیفه</h2>
+<div class="container" dir="rtl">
+    <h2 class="mb-4 text-center text-danger">🛑 حذف تسک</h2>
 
-<h3>آیا مطمئن هستید که می‌خواهید این وظیفه را حذف کنید؟</h3>
+    <h4 class="mb-3">آیا مطمئن هستید که می‌خواهید این تسک را حذف کنید؟</h4>
 
-<div>
-    <h4>جزئیات وظیفه:</h4>
-    <dl class="row">
-        <dt class="col-sm-2">عنوان</dt>
-        <dd class="col-sm-10">@Model.Title</dd>
+    <div class="card p-3 mb-4 shadow-sm">
+        <h5 class="mb-3">جزئیات تسک:</h5>
+        <dl class="row">
+            <dt class="col-sm-3 fw-bold">عنوان</dt>
+            <dd class="col-sm-9">@Model.Title</dd>
 
-        <dt class="col-sm-2">توضیحات</dt>
-        <dd class="col-sm-10">@Model.Description</dd>
+            <dt class="col-sm-3 fw-bold">توضیحات</dt>
+            <dd class="col-sm-9">@Model.Description</dd>
 
-        <dt class="col-sm-2">تاریخ ایجاد</dt>
-        <dd class="col-sm-10">@Model.CreationDaye.ToString("yyyy/MM/dd")</dd>
-    </dl>
+            <dt class="col-sm-3 fw-bold">تاریخ ایجاد</dt>
+            <dd class="col-sm-9">@Model.CreationDaye.ToString("yyyy/MM/dd")</dd>
+        </dl>
+    </div>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-danger">✅ بله، حذف شود</button>
+            <a asp-action="Index" class="btn btn-secondary">❌ خیر، بازگشت</a>
+        </div>
+    </form>
 </div>
-
-<form asp-action="DeleteConfirmed" method="post">
-    <input type="hidden" asp-for="Id" />
-    <button type="submit" class="btn btn-danger">بله، حذف شود</button>
-    <a asp-action="Index" class="btn btn-secondary">خیر، بازگشت</a>
-</form>

@@ -26,7 +26,7 @@ namespace TaskManager.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             var tasks = await _context.Tasks
-                .Where(t => t.UserId == user.Id)
+                .Where(t => t.UserId == user.Id).AsNoTracking()
                 .ToListAsync();
             return View(tasks);
         }
@@ -60,7 +60,7 @@ namespace TaskManager.Controllers
             }
             catch (DbUpdateException ex)
             {
-                // اینجا می‌توانی لاگ هم اضافه کنی
+           
                 ModelState.AddModelError("", "خطا در ذخیره تسک: " + ex.Message);
                 return View(task);
             }
