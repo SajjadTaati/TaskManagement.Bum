@@ -1,8 +1,34 @@
 ﻿@model TaskManager.Models.LoginViewModel
-<form asp-action="Login" method="post">
-    <label>نام کاربری</label>
-    <input asp-for="Username" />
-    <label>رمز عبور</label>
-    <input asp-for="Password" type="password" />
-    <button type="submit">ورود</button>
-</form>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow-lg p-4 rounded-4" style="max-width: 400px; width: 100%;">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold">ورود به سیستم</h3>
+            <p class="text-muted">لطفاً اطلاعات خود را وارد کنید</p>
+        </div>
+
+        <form asp-action="Login" method="post">
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label">نام کاربری</label>
+                <input asp-for="Username" class="form-control" placeholder="نام کاربری خود را وارد کنید" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label">رمز عبور</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="رمز عبور خود را وارد کنید" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="d-grid mb-3">
+                <button type="submit" class="btn btn-primary btn-lg rounded-3">ورود</button>
+            </div>
+
+            <div class="text-center">
+                <small class="text-muted">
+                    حساب کاربری ندارید؟ <a href="/Account/Register" class="text-decoration-none">ثبت نام</a>
+                </small>
+            </div>
+        </form>
+    </div>
+</div>

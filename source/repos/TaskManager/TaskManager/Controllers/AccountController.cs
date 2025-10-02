@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TaskManager.Models;
 using TaskManager.Models;
@@ -7,10 +8,10 @@ namespace TaskManager.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AccountController(UserManager<ApplicationUser> userManager,
+        public AccountController(Microsoft.AspNetCore.Identity.UserManager<ApplicationUser> userManager,
                                  SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
@@ -52,16 +53,19 @@ namespace TaskManager.Controllers
         {
             if (ModelState.IsValid)
             {
+                var user = await _userManager.FindByNameAsync(model.Username);
                 var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, false, false);
 
                 if (result.Succeeded)
-                    return RedirectToAction("Index", "Task");
+                   TempData["LoginMessage"] = $"خوش آمدید {user.UserName}";
+                return RedirectToAction("Index", "Task");
 
                 ModelState.AddModelError("", "ورود ناموفق بود.");
             }
             return View(model);
         }
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();

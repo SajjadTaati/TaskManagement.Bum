@@ -21,11 +21,18 @@ namespace TaskManager.ActionFilter
         public override void OnActionExecuted(ActionExecutedContext context)
         {
             Guid? userId = null;
-            var userIdString = context.HttpContext.Session.GetString("UserId");
-            if (!string.IsNullOrEmpty(userIdString))
+
+            // گرفتن UserId از Claims
+            var user = context.HttpContext.User;
+            if (user.Identity != null && user.Identity.IsAuthenticated)
             {
-                userId = Guid.Parse(userIdString);
+                var claim = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+                if (claim != null)
+                {
+                    userId = Guid.Parse(claim.Value);
+                }
             }
+
             var log = new RequestLog
             {
                 UserId =userId.ToString(),

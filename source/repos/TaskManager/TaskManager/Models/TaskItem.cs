@@ -8,11 +8,12 @@ namespace TaskManager.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "لطفا عنوان تسک را وارد کنید")]
         [MaxLength(200)]
         public string Title { get; set; }
 
-        public string Description { get; set; }
+       
+        public string? Description { get; set; }
 
         public bool IsCompleted { get; set; } = false;
 

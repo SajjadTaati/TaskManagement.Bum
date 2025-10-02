@@ -4,9 +4,9 @@ namespace TaskManager.Models
 {
     public class LoginViewModel
     {
-        [Required] 
+        [Required(ErrorMessage = "لطفا نام کاربری را وارد کنید")]
         public string Username { get; set; }
-        [Required, DataType(DataType.Password)] 
+        [Required(ErrorMessage = "لطفا رمز عبور را وارد کنید"), DataType(DataType.Password)] 
         public string Password { get; set; }
     }
 }

@@ -4,11 +4,11 @@ namespace TaskManager.Models
 {
     public class RegisterViewModel
     {
-        [Required] 
+        [Required(ErrorMessage = "لطفا نام کاربری را وارد کنید")] 
         public string Username { get; set; }
-        [Required, EmailAddress] 
+        [Required(ErrorMessage = "لطفا ایمیل را وارد کنید"), EmailAddress] 
         public string Email { get; set; }
-        [Required, DataType(DataType.Password)] 
+        [Required(ErrorMessage ="لطفا رمز عبور را وارد کنید"), DataType(DataType.Password)] 
         public string Password { get; set; }
     }
 }
