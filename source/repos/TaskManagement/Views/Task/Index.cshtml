@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TaskManager.Models.TaskItem>
+
+<h2>لیست تسک‌ها</h2>
+
+<a asp-action="Create" class="btn btn-primary">تسک جدید</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>عملیات</th>
+            <th>عنوان</th>
+            <th>توضیحات</th>
+            <th>تاریخ ایجاد</th>
+        
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@task.Id" class="btn btn-danger btn-sm">حذف</a>
+                    <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-warning btn-sm">ویرایش</a>
+                </td>
+                <td>@task.Title</td>
+                <td>@task.Description</td>
+                <td>@task.CreationDaye.ToString("yyyy/MM/dd")</td>
+               
+            </tr>
+        }
+    </tbody>
+</table>

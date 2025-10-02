@@ -1,0 +1,29 @@
+﻿@model TaskManager.Models.TaskItem
+
+@{
+    ViewData["Title"] = "حذف وظیفه";
+}
+
+<h2>حذف وظیفه</h2>
+
+<h3>آیا مطمئن هستید که می‌خواهید این وظیفه را حذف کنید؟</h3>
+
+<div>
+    <h4>جزئیات وظیفه:</h4>
+    <dl class="row">
+        <dt class="col-sm-2">عنوان</dt>
+        <dd class="col-sm-10">@Model.Title</dd>
+
+        <dt class="col-sm-2">توضیحات</dt>
+        <dd class="col-sm-10">@Model.Description</dd>
+
+        <dt class="col-sm-2">تاریخ ایجاد</dt>
+        <dd class="col-sm-10">@Model.CreationDaye.ToString("yyyy/MM/dd")</dd>
+    </dl>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">بله، حذف شود</button>
+    <a asp-action="Index" class="btn btn-secondary">خیر، بازگشت</a>
+</form>

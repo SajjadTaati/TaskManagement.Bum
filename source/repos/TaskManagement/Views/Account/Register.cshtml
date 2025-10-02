@@ -1,0 +1,10 @@
+﻿@model TaskManager.Models.RegisterViewModel
+<form asp-action="Register" method="post">
+    <label>نام کاربری</label>
+    <input asp-for="Username" />
+    <label>ایمیل</label>
+    <input asp-for="Email" />
+    <label>رمز عبور</label>
+    <input asp-for="Password" type="password" />
+    <button type="submit">ثبت‌نام</button>
+</form>
